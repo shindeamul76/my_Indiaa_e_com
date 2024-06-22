@@ -3,7 +3,7 @@ import type { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { StatusCodes } from 'http-status-codes';
 import { userRouters } from '@myIndiaa/routes/user/user-route';
-import { product } from '@myIndiaa/routes/product/produt-route';
+import { productRouters } from '@myIndiaa/routes/product/product-route';
 
 
 
@@ -14,7 +14,8 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 
-app.use('/api/v1', userRouters);
+app.use('/api/v1/auth', userRouters);
+app.use('/api/v1/product', productRouters);
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Enhanced E-Commerce API!' });

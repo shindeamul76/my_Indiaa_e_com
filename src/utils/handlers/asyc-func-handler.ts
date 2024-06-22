@@ -24,7 +24,7 @@ const asyncHandler = (requestHandler: RequestHandler): RequestHandler => {
         // ===================Throwing the relevant response if validation fails
         res
           .status(StatusCodes.BAD_REQUEST)
-          .json(new ApiError(StatusCodes.BAD_REQUEST, errorResponse, VALIDATION_ERROR));
+          .json(new ApiError(StatusCodes.BAD_REQUEST, VALIDATION_ERROR, errorResponse ));
       } else if (error instanceof ApiError) {
         // ===================Throwing the relevant response if there comes an API Error
         res.status(error.statusCode).json(error.toJSON());

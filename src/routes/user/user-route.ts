@@ -9,6 +9,6 @@ import express from 'express'
 export const userRouters = express.Router();
 
 
-userRouters.post('/register', registerUser);
+userRouters.route('/register').post( registerUser );
 
-userRouters.post('/login', loginUser)
+userRouters.route('/login').post( loginUser )
