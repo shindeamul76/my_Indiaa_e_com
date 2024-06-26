@@ -15,19 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const nock_1 = __importDefault(require("nock"));
-const app_1 = require("@myIndiaa/main/app"); // Adjust the path to your app
+const app_1 = require("@myIndiaa/main/app");
 const http_status_codes_1 = require("http-status-codes");
 (0, vitest_1.describe)('POST /api/v1/payment', () => {
     const stripeBaseUrl = 'https://api.stripe.com';
     (0, vitest_1.beforeEach)(() => {
-        // Mock the Stripe customers.create endpoint
         (0, nock_1.default)(stripeBaseUrl)
             .post('/v1/customers')
             .reply(200, {
             id: 'cus_1234567890',
             email: 'test@example.com',
         });
-        // Mock the Stripe charges.create endpoint
         (0, nock_1.default)(stripeBaseUrl)
             .post('/v1/charges')
             .reply(200, {
@@ -70,11 +68,10 @@ const http_status_codes_1 = require("http-status-codes");
         (0, vitest_1.expect)(res.body.message).toBe('successfully completed payment');
     }));
     (0, vitest_1.it)('should return an error if the Stripe customer creation fails', () => __awaiter(void 0, void 0, void 0, function* () {
-        // Mock the Stripe customers.create endpoint to fail
         nock_1.default.cleanAll();
         (0, nock_1.default)(stripeBaseUrl)
             .post('/v1/customers')
-            .replyWithError('Something went wrong');
+            .replyWithError('An error occurred with our connection to Stripe. Request was retried 1 times.');
         const mockRequestBody = {
             token: {
                 email: 'test@example.com',
@@ -93,6 +90,6 @@ const http_status_codes_1 = require("http-status-codes");
             .post('/api/v1/payment')
             .send(mockRequestBody);
         (0, vitest_1.expect)(res.statusCode).toBe(http_status_codes_1.StatusCodes.INTERNAL_SERVER_ERROR);
-        (0, vitest_1.expect)(res.body.message).toBe('Something went wrong');
+        (0, vitest_1.expect)(res.body.message).toContain('An error occurred with our connection to Stripe');
     }));
 });

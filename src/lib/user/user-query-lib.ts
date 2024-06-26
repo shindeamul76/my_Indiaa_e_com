@@ -6,19 +6,19 @@ export const registerUserQuery = async (data: any): Promise<IUser> => {
     return await User.create(data);
 }
 
-export const updateUser = async (id: string, data: any): Promise<IUser | null> => {
+export const updateUserQuery = async (id: string, data: any): Promise<IUser | null> => {
     return await User.findByIdAndUpdate(id, data, { new: true });
 }
 
-export const deleteUser = async (id: string): Promise<void> => {
+export const deleteUserQuery = async (id: string): Promise<void> => {
      await User.findByIdAndDelete(id);
 }
 
-export const getUserById = async (id: string): Promise<IUser | null> => {
+export const getUserByIdQuery = async (id: string): Promise<IUser | null> => {
     return await User.findById(id);
 }
 
-export const getUserByEmailOrUsername = async (data: any): Promise<IUser | null> => {
+export const getUserByEmailOrUsernameQuery = async (data: any): Promise<IUser | null> => {
     return await User.findOne({
         $or: [
             { email: data.email },
@@ -29,6 +29,6 @@ export const getUserByEmailOrUsername = async (data: any): Promise<IUser | null>
 
 
 
-export const getAllUsers = async (): Promise<IUser[]> => {
+export const getAllUsersQuery = async (): Promise<IUser[]> => {
     return await User.find({});
 }

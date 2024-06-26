@@ -9,25 +9,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = exports.getUserByEmailOrUsername = exports.getUserById = exports.deleteUser = exports.updateUser = exports.registerUserQuery = void 0;
+exports.getAllUsersQuery = exports.getUserByEmailOrUsernameQuery = exports.getUserByIdQuery = exports.deleteUserQuery = exports.updateUserQuery = exports.registerUserQuery = void 0;
 const user_model_1 = require("@myIndiaa/main/db/models/user-model");
 const registerUserQuery = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_model_1.User.create(data);
 });
 exports.registerUserQuery = registerUserQuery;
-const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+const updateUserQuery = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_model_1.User.findByIdAndUpdate(id, data, { new: true });
 });
-exports.updateUser = updateUser;
-const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+exports.updateUserQuery = updateUserQuery;
+const deleteUserQuery = (id) => __awaiter(void 0, void 0, void 0, function* () {
     yield user_model_1.User.findByIdAndDelete(id);
 });
-exports.deleteUser = deleteUser;
-const getUserById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+exports.deleteUserQuery = deleteUserQuery;
+const getUserByIdQuery = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_model_1.User.findById(id);
 });
-exports.getUserById = getUserById;
-const getUserByEmailOrUsername = (data) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getUserByIdQuery = getUserByIdQuery;
+const getUserByEmailOrUsernameQuery = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_model_1.User.findOne({
         $or: [
             { email: data.email },
@@ -35,8 +35,8 @@ const getUserByEmailOrUsername = (data) => __awaiter(void 0, void 0, void 0, fun
         ]
     });
 });
-exports.getUserByEmailOrUsername = getUserByEmailOrUsername;
-const getAllUsers = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.getUserByEmailOrUsernameQuery = getUserByEmailOrUsernameQuery;
+const getAllUsersQuery = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_model_1.User.find({});
 });
-exports.getAllUsers = getAllUsers;
+exports.getAllUsersQuery = getAllUsersQuery;

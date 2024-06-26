@@ -15,10 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = require("@myIndiaa/main/app");
+const http_status_codes_1 = require("http-status-codes");
 (0, vitest_1.describe)('POST /api/v1/auth/register', () => {
     (0, vitest_1.it)('checkin the health', () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.app).get('/').send();
-        (0, vitest_1.expect)(res.statusCode).toBe(200);
+        (0, vitest_1.expect)(res.statusCode).toBe(http_status_codes_1.StatusCodes.OK);
         (0, vitest_1.expect)(res.body.message).toBe('Enhanced E-Commerce API!');
     }));
 });

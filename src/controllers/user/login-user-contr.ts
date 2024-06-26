@@ -7,7 +7,7 @@ import { StatusCodes } from "http-status-codes";
 import { INVALID_CREDENTIALS, IUser, LOGIN_SUCCESS, LoginReqBodyType, USER_DOES_NOT_EXISTS } from "@myIndiaa/utils/types/db-user-type";
 import { ApiError } from "@myIndiaa/utils/handlers/api-error-handler";
 import {  schemaUserLoginBodyParams } from "@myIndiaa/lib/validations/user-validation";
-import { getUserByEmailOrUsername } from "@myIndiaa/lib/user/user-query-lib";
+import { getUserByEmailOrUsernameQuery } from "@myIndiaa/lib/user/user-query-lib";
 import { matchPassword } from "@myIndiaa/lib/user/match-password-lib";
 import { generateJWT } from "@myIndiaa/lib/user/generate-token-lib";
 
@@ -16,7 +16,7 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
 
     const body: LoginReqBodyType = schemaUserLoginBodyParams.parse(req.body);
 
-    const existingUser: IUser | null = await getUserByEmailOrUsername(body);
+    const existingUser: IUser | null = await getUserByEmailOrUsernameQuery(body);
 
     if (!existingUser) {
         throw new ApiError(StatusCodes.CONFLICT, USER_DOES_NOT_EXISTS);

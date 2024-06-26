@@ -10,9 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateJWT = void 0;
+const config_1 = require("@myIndiaa/main/config");
 const jose_1 = require("jose");
 const generateJWT = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const secret = process.env.JWT_SECRET || 'secret';
+    const secret = config_1.JWT_SECRET;
     const jwk = yield (0, jose_1.importJWK)({ k: secret, alg: 'HS256', kty: 'oct' });
     const jwt = yield new jose_1.SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })

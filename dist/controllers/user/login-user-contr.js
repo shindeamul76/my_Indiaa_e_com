@@ -21,7 +21,7 @@ const match_password_lib_1 = require("@myIndiaa/lib/user/match-password-lib");
 const generate_token_lib_1 = require("@myIndiaa/lib/user/generate-token-lib");
 exports.loginUser = (0, asyc_func_handler_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = user_validation_1.schemaUserLoginBodyParams.parse(req.body);
-    const existingUser = yield (0, user_query_lib_1.getUserByEmailOrUsername)(body);
+    const existingUser = yield (0, user_query_lib_1.getUserByEmailOrUsernameQuery)(body);
     if (!existingUser) {
         throw new api_error_handler_1.ApiError(http_status_codes_1.StatusCodes.CONFLICT, db_user_type_1.USER_DOES_NOT_EXISTS);
     }

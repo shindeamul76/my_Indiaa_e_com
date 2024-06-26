@@ -18,9 +18,7 @@ const mongodb_memory_server_1 = require("mongodb-memory-server");
 const vitest_1 = require("vitest");
 const vitest_mock_extended_1 = require("vitest-mock-extended");
 const user_model_1 = require("@myIndiaa/main/db/models/user-model");
-// Initialize an in-memory MongoDB server
 const mongoServer = new mongodb_memory_server_1.MongoMemoryServer();
-// Create a mock for Mongoose
 exports.mongooseClient = (0, vitest_mock_extended_1.mockDeep)();
 exports.mongooseClient.model.mockImplementation((modelName) => {
     switch (modelName) {
@@ -30,14 +28,8 @@ exports.mongooseClient.model.mockImplementation((modelName) => {
             throw new Error(`Unknown model: ${modelName}`);
     }
 });
-// Reset mocks before each test
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     (0, vitest_mock_extended_1.mockReset)(exports.mongooseClient);
     const uri = yield mongoServer.getUri();
     yield mongoose_1.default.connect(uri);
 }));
-// // Disconnect and stop the server after all tests are done
-// afterAll(async () => {
-//   await mongoose.disconnect();
-//   await mongoServer.stop();
-// });

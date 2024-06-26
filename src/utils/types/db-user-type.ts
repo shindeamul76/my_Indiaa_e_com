@@ -29,6 +29,8 @@ export const USER_EXISTS = "User Already Exists";
 
 export const USER_CREATE_SUCCESS = "User Created Successfully";
 
+export const USER_FETCH_SUCCESS = "User Fetched Successfully";
+
 export const USER_DOES_NOT_EXISTS = "User Not Exists Please Register First";
 
 export const INVALID_CREDENTIALS = "Invalid Credentials";
