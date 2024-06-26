@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ORDER_FETCH_SUCCESS = exports.REQUIRED_ORDER_USER_ID_OR_STATUS = exports.INVALID_ORDER_DATA = exports.ORDER_NOT_FOUND = exports.ORDER_DELETE_SUCCESS = exports.ORDER_UPDATE_SUCCESS = exports.ORDER_DOES_NOT_EXIST = exports.ORDER_CREATE_SUCCESS = exports.ORDER_EXISTS = void 0;
+exports.ORDER_EXISTS = "Order Already Exists";
+exports.ORDER_CREATE_SUCCESS = "Order Created Successfully";
+exports.ORDER_DOES_NOT_EXIST = "Order Does Not Exist";
+exports.ORDER_UPDATE_SUCCESS = "Order Updated Successfully";
+exports.ORDER_DELETE_SUCCESS = "Order Deleted Successfully";
+exports.ORDER_NOT_FOUND = "Order Not Found";
+exports.INVALID_ORDER_DATA = "Invalid Order Data";
+exports.REQUIRED_ORDER_USER_ID_OR_STATUS = "Enter order user ID or status to search";
+exports.ORDER_FETCH_SUCCESS = "Order Fetched Successfully";
