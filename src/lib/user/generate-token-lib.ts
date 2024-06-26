@@ -1,9 +1,10 @@
 
+import { JWT_SECRET } from '@myIndiaa/main/config';
 import { JWTPayload, SignJWT, importJWK } from 'jose';
 
 
 export const generateJWT = async (payload: JWTPayload) => {
-    const secret = process.env.JWT_SECRET || 'secret';
+    const secret = JWT_SECRET;
   
     const jwk = await importJWK({ k: secret, alg: 'HS256', kty: 'oct' });
   

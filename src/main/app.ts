@@ -6,6 +6,7 @@ import { userRouters } from '@myIndiaa/routes/user/user-route';
 import { productRouters } from '@myIndiaa/routes/product/product-route';
 import { paymentRouters } from '@myIndiaa/routes/payment/payment-route';
 import { orderRouters } from '@myIndiaa/routes/order/order-route';
+import { verifyJWT } from '@myIndiaa/middlewares/verify-jwt-middleware';
 
 
 
@@ -26,7 +27,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-app.get('/success', (req: Request, res: Response) => {
+app.get('/success', verifyJWT, (req: Request, res: Response) => {
   res.status(200).json({ message: 'Loggged In Successfully' });
 });
 
