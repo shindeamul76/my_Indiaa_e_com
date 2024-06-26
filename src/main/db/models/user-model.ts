@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 
 
 
-const UserSchema: Schema<IUser> = new mongoose.Schema({
+ export const UserSchema: Schema<IUser> = new mongoose.Schema({
     username: {
         type: String,
         required: true,
