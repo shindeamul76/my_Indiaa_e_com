@@ -50,7 +50,7 @@ Here is what you need to be able to run my_Indiaa_e_comm.
 ## setup
 
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/shindeamul76/dataseer_file_management.git).
+1. Clone the repo into a public GitHub repository (or fork https://github.com/shindeamul76/my_Indiaa_e_com.git).
 
 
          https://github.com/shindeamul76/my_Indiaa_e_com.git
