@@ -25,12 +25,12 @@ export const updateExistingProduct = asyncHandler(async (req: Request, res: Resp
 
     const updateProductN = await updateProductQuery(id, body);
 
-    const publicData = schemaProductReadPublic.parse(updateProductN);
+    // const publicData = schemaProductReadPublic.parse(updateProductN);
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicData,
+            updateProductN,
             PRODUCT_UPDATE_SUCCESS
         )
     );

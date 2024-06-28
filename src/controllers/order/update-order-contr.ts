@@ -24,12 +24,12 @@ export const updateExistingOrder = asyncHandler(async (req: Request, res: Respon
 
     const updateOrder = await updateOrderQuery(id, body);
 
-    const publicData = schemaOrderReadPublic.parse(updateOrder);
+    // const publicData = schemaOrderReadPublic.parse(updateOrder);
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicData,
+            updateOrder,
             ORDER_UPDATE_SUCCESS
         )
     );

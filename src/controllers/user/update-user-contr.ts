@@ -28,12 +28,12 @@ export const updateExistingUser = asyncHandler(async (req: Request, res: Respons
 
     const updateUser = await updateUserQuery(id, body);
 
-    const publicData = schemaUserReadPublic.parse(updateUser);
+    // const publicData = schemaUserReadPublic.parse(updateUser);
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicData,
+            updateUser,
             PRODUCT_UPDATE_SUCCESS
         )
     );

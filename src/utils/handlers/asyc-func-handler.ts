@@ -22,15 +22,15 @@ const asyncHandler = (requestHandler: RequestHandler): RequestHandler => {
 
         
         // ===================Throwing the relevant response if validation fails
-        res
+       return  res
           .status(StatusCodes.BAD_REQUEST)
           .json(new ApiError(StatusCodes.BAD_REQUEST, VALIDATION_ERROR, errorResponse ));
       } else if (error instanceof ApiError) {
         // ===================Throwing the relevant response if there comes an API Error
-        res.status(error.statusCode).json(error.toJSON());
+       return res.status(error.statusCode).json(error.toJSON());
       } else {
         // ===================Throwing the relevant response if there comes any unknown error or any other unhandled error
-        res
+        return res
           .status(StatusCodes.INTERNAL_SERVER_ERROR)
           .json(new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message, error));
       }

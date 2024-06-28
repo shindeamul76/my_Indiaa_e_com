@@ -23,13 +23,13 @@ export const createProduct = asyncHandler(async (req: Request, res: Response) =>
 
     const newProduct: IProduct = await createProductQuery(body);
 
-    const publicData = schemaProductReadPublic.parse(newProduct);
+    // const publicData = schemaProductReadPublic.parse(newProduct);
 
 
     return res.status(StatusCodes.CREATED).json(
         new ApiResponse(
             StatusCodes.CREATED,
-            publicData,
+            newProduct,
             PRODUCT_CREATE_SUCCESS
         )
     );

@@ -52,3 +52,10 @@ export const schemaUserLoginBodyParams = schemaUserBaseBodyParams
     email: true,
     username: true,
 }).partial();
+
+export const schemaUserReadPublicRes = z.object({
+  _id: z.string(),
+  email: z.string().email(),
+  username: z.string(),
+  password: z.string().min(6),
+});

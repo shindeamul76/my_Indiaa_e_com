@@ -21,12 +21,12 @@ export const getUser = asyncHandler(async (req: Request, res: Response) => {
         throw new ApiError(StatusCodes.BAD_REQUEST, USER_DOES_NOT_EXISTS);
     }
 
-    const publicData = schemaUserReadPublic.parse(existingUser);
+    // const publicData = schemaUserReadPublic.parse(existingUser);
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicData,
+            existingUser,
             USER_FETCH_SUCCESS
         )
     );
