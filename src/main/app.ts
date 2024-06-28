@@ -7,14 +7,21 @@ import { productRouters } from '@myIndiaa/routes/product/product-route';
 import { paymentRouters } from '@myIndiaa/routes/payment/payment-route';
 import { orderRouters } from '@myIndiaa/routes/order/order-route';
 import { verifyJWT } from '@myIndiaa/middlewares/verify-jwt-middleware';
-
+import rateLimit from 'express-rate-limit';
 
 
 export const app: Application = express();
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: 'Too many requests, please try again later.'
+});
+
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(limiter);
 app.use(cors());
 
 app.use('/api/v1/auth', userRouters);

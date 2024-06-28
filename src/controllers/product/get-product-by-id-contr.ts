@@ -21,12 +21,12 @@ export const getProduct = asyncHandler(async (req: Request, res: Response) => {
         throw new ApiError(StatusCodes.BAD_REQUEST, PRODUCT_DOES_NOT_EXIST);
     }
 
-    const publicData = schemaProductReadPublic.parse(existingProduct);
+    // const publicData = schemaProductReadPublic.parse(existingProduct);
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicData,
+            existingProduct,
             PRODUCT_FETCH_SUCCESS
         )
     );

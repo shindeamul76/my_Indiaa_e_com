@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "c178cb8a-7919-406d-922d-938c0ebd2468",
+		"name": "my_Indiaa_e-com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23915822"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"fake_username\",\r\n    \"email\": \"fakeusername4@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/auth/register",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"amul__4\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/auth/login",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Success",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"amul__5\",\r\n    \"email\": \"amul4345@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/success",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"success"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/auth/667690af8f43322b01ab2b73",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"auth",
+								"667690af8f43322b01ab2b73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"username\": \"amul_88\",\r\n    \"email\": \"amul88@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/auth/667690af8f43322b01ab2b73",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"auth",
+								"667690af8f43322b01ab2b73"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get_All_Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"IFB 266 L Solo Microwave Oven (25PM2S, IFBJ0, Silver)\",\r\n    \"desc\": \"26L Capacity: Suitable for families with 5 to 6 members\",\r\n    \"img\": \"http://example.com/image.jpg\",\r\n    // \"categories\": [\"Microwave Oven\"],\r\n    \"size\": [\"S\", \"M\", \"L\"],\r\n    // \"color\": [\"Black\", \"Blue\"],\r\n    \"price\": 7640,\r\n    \"inStock\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/product?category=Microwave Oven",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Microwave Oven"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"IFB 266 L Solo Microwave Oven (25PM2S, IFBJ0, Silvert Red)\",\r\n    \"desc\": \"26L Capacity: Suitable for families with 5 to 6 tmembers Red\",\r\n    \"img\": \"http://example.com/image.jpg\",\r\n    // \"categories\": [\"Microwave Oven\"],\r\n    \"size\": [\"S\", \"M\", \"L\"],\r\n    // \"color\": [\"Black\", \"Blue\"],\r\n    \"price\": 7640,\r\n    \"inStock\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/product/",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Product_By_Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"IFB 266 L Solo Microwave Oven (25PM2S, IFBJ0, Silver)\",\r\n    \"desc\": \"26L Capacity: Suitable for families with 5 to 6 members\",\r\n    \"img\": \"http://example.com/image.jpg\",\r\n    // \"categories\": [\"Microwave Oven\"],\r\n    \"size\": [\"S\", \"M\", \"L\"],\r\n    // \"color\": [\"Black\", \"Blue\"],\r\n    \"price\": 7640,\r\n    \"inStock\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/product/find/6677216062ae84e08d4e9093",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"product",
+								"find",
+								"6677216062ae84e08d4e9093"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"IFB 266 L Solo Microwave Oven (25PM2S, IFBJ0, Silver)\",\r\n    \"desc\": \"26L Capacity: Suitable for families with 5 to 6 members\",\r\n    \"img\": \"http://example.com/image.jpg\",\r\n    // \"categories\": [\"Microwave Oven\"],\r\n    \"size\": [\"S\", \"M\", \"L\"],\r\n    // \"color\": [\"Black\", \"Blue\"],\r\n    \"price\": 7640,\r\n    \"inStock\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/product/6677205462ae84e08d4e9090",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"product",
+								"6677205462ae84e08d4e9090"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Products",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"title\": \"IFB 266 L Solo Microwave Oven (25PM2S, IFBJ0, Silver)\",\r\n    // \"desc\": \"26L Capacity: Suitable for families with 5 to 6 members\",\r\n    // \"img\": \"http://example.com/image.jpg\",\r\n    // // \"categories\": [\"Microwave Oven\"],\r\n    // \"size\": [\"S\", \"M\", \"L\"],\r\n    // // \"color\": [\"Black\", \"Blue\"],\r\n    // \"price\": 7640,\r\n    \"inStock\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/product/66772f4daf35b00025b51160",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"product",
+								"66772f4daf35b00025b51160"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"667690af8f43322b01ab2b73\",\r\n  \"products\": [\r\n    {\r\n      \"productId\": \"66771f5a62ae84e08d4e908a\",\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"productId\": \"66772f4daf35b00025b51160\",\r\n      \"quantity\": 1\r\n    }\r\n  ],\r\n  \"amount\": 299.99,\r\n  \"address\": {\r\n    \"street\": \"123 Main Rd\",\r\n    \"city\": \"Mumbai\",\r\n    \"state\": \"MH\",\r\n    \"zip\": \"9414828305\",\r\n    \"country\": \"IND\"\r\n  },\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myIndDevUrl}}/order/",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_User_Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myIndDevUrl}}/order/find/user/667690af8f43322b01ab2b73",
+							"host": [
+								"{{myIndDevUrl}}"
+							],
+							"path": [
+								"order",
+								"find",
+								"user",
+								"667690af8f43322b01ab2b73"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

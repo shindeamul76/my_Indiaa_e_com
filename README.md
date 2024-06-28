@@ -19,6 +19,10 @@
 
 - E-commerce backend to manage the user, product, order and payments in e-commrce website .
 - Run this code on local by clone this repo .
+- deployed URL
+```bash
+   http://ec2-65-2-34-14.ap-south-1.compute.amazonaws.com:5000/
+```
 
 ## Built With
 - Nodejs

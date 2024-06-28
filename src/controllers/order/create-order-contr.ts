@@ -16,13 +16,13 @@ export const createOrder = asyncHandler(async (req: Request, res: Response) => {
 
     const newOrder: IOrder = await createOrderQuery(body);
 
-    const publicData = schemaOrderReadPublic.parse(newOrder);
+    // const publicData = schemaOrderReadPublic.parse(newOrder);
 
 
     return res.status(StatusCodes.CREATED).json(
         new ApiResponse(
             StatusCodes.CREATED,
-            publicData,
+            newOrder,
             ORDER_CREATE_SUCCESS
         )
     );

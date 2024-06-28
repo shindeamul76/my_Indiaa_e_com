@@ -7,8 +7,10 @@ import { StatusCodes } from "http-status-codes";
 import { IDBUser, IUser, USER_CREATE_SUCCESS, USER_EXISTS, UserReqBodyType } from "@myIndiaa/utils/types/db-user-type";
 import { ApiError } from "@myIndiaa/utils/handlers/api-error-handler";
 import bcrypt from "bcrypt"
-import { schemaUserCreateBodyParams, schemaUserReadPublic } from "@myIndiaa/lib/validations/user-validation";
+import { schemaUserCreateBodyParams, schemaUserReadPublic, schemaUserReadPublicRes } from "@myIndiaa/lib/validations/user-validation";
 import { getUserByEmailOrUsernameQuery, registerUserQuery } from "@myIndiaa/lib/user/user-query-lib";
+import { _UserModel } from "@myIndiaa/utils/zod/user-zod-model";
+import { ObjectId } from 'mongodb';
 
 
 export const registerUser = asyncHandler(async (req: Request, res: Response) => {
@@ -28,12 +30,11 @@ export const registerUser = asyncHandler(async (req: Request, res: Response) => 
 
     const newUser: IUser = await registerUserQuery(body);
 
-    const publicData = schemaUserReadPublic.parse(newUser);
 
     return res.status(StatusCodes.CREATED).json(
         new ApiResponse(
             StatusCodes.CREATED,
-            publicData,
+            newUser,
             USER_CREATE_SUCCESS
         )
     );

@@ -26,15 +26,15 @@ export const getAllProducts = asyncHandler(async (req: Request, res: Response) =
         products = await getAllProductsQuery();
     }
 
-    const publicProducts = products.map(product => {
-        const publicData = schemaProductReadPublic.parse(product.toObject());
-        return publicData;
-    });
+    // const publicProducts = products.map(product => {
+    //     const publicData = schemaProductReadPublic.parse(product.toObject());
+    //     return publicData;
+    // });
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicProducts,
+            products,
             PRODUCT_FETCH_SUCCESS
         )
     );

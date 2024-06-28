@@ -16,15 +16,15 @@ export const getAllOrders = asyncHandler(async (req: Request, res: Response) => 
 
     let oredrs: IOrder[]  = await getAllOrdersQuery();
 
-    const publicOrders = oredrs.map(order => {
-        const publicData = schemaOrderReadPublic.parse(order.toObject());
-        return publicData;
-    });
+    // const publicOrders = oredrs.map(order => {
+    //     const publicData = schemaOrderReadPublic.parse(order.toObject());
+    //     return publicData;
+    // });
 
     return res.status(StatusCodes.OK).json(
         new ApiResponse(
             StatusCodes.OK,
-            publicOrders,
+            oredrs,
             ORDER_FETCH_SUCCESS
         )
     );
