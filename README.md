@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="/assets/myIndiaa_.png"  width="100%" height="300" alt="File Management Image" />
+  <img src="/assets/myIndiaa_.png"  width="100%" height="300" alt="My Indiaa Image" />
 
   <h1>E-commerce Platform</h1>
 
@@ -10,7 +10,7 @@
 
   <p>
     <a href="https://github.com/shindeamul76/"><img alt="Build Status" src="https://img.shields.io/badge/github-profile-blue" /></a>
-    <a href="#"><img alt="Build Status" src="https://img.shields.io/badge/File%20the%20Management-8A2BE2" /></a>
+    <a href="#"><img alt="Build Status" src="https://img.shields.io/badge/my%20the%20Indiaa-8A2BE2" /></a>
   </p>
 </div>
 
