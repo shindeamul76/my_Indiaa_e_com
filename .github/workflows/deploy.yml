@@ -40,6 +40,12 @@ jobs:
           STRIPE_KEY=${{ secrets.STRIPE_KEY }}
           JWT_SECRET=${{ secrets.JWT_SECRET }}
         script: |
+          export MONGO_URI="${{ secrets.MONGO_URI }}"
+          export STRIPE_KEY="${{ secrets.STRIPE_KEY }}"
+          export JWT_SECRET="${{ secrets.JWT_SECRET }}"
+          echo "Deploying with MONGO_URI=$MONGO_URI"
+          echo "Deploying with STRIPE_KEY=$STRIPE_KEY"
+          echo "Deploying with JWT_SECRET=$JWT_SECRET"
           sudo docker pull shindeamul76/my-indiaa-e-comm:latest
           sudo docker stop e-com || true
           sudo docker rm e-com || true
